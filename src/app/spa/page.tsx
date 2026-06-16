@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, Sparkles, ShieldAlert, Heart, Scissors, Activity } from "lucide-react";
+import { Clock, Sparkles, ShieldAlert, Heart, Scissors } from "lucide-react";
 
 // Data Menu Satuan (A la Carte) dari image_ed7b06.jpg
 const alaCarteMenu = {
@@ -76,7 +76,7 @@ export default function SpaMenuPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-amber-500 uppercase tracking-widest text-sm font-semibold"
           >
-            Putri Bali Wellness
+            Clara Bali Spa
           </motion.span>
           <motion.h1 
             initial={{ opacity: 0, y: 10 }}
@@ -89,7 +89,7 @@ export default function SpaMenuPage() {
           <div className="w-24 h-0.5 bg-amber-500 mx-auto mt-4" />
         </div>
 
-        {/* Policy Notice Box (Man guest policy dari image_ed7b06.jpg) */}
+        {/* Policy Notice Box */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -168,10 +168,16 @@ export default function SpaMenuPage() {
                     </div>
                   </div>
 
+                  {/* Tombol mengarah langsung ke WhatsApp dengan teks dinamis sesuai paket */}
                   <div className="mt-8">
-                    <button className="w-full py-2.5 bg-neutral-950 hover:bg-amber-500 hover:text-neutral-950 text-neutral-300 font-medium rounded-xl text-xs uppercase tracking-wider border border-neutral-800 hover:border-amber-500 transition-all duration-300">
-                      Book Package
-                    </button>
+                    <a 
+                      href={`https://wa.me/6287897465067?text=Halo%20Clara%20Bali%20Spa,%20saya%20tertarik%20untuk%20booking%20paket%20*${encodeURIComponent(pkg.title)}*`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-2.5 text-center bg-neutral-950 hover:bg-amber-500 hover:text-neutral-950 text-neutral-300 font-medium rounded-xl text-xs uppercase tracking-wider border border-neutral-800 hover:border-amber-500 transition-all duration-300 shadow-md"
+                    >
+                      Book via WhatsApp
+                    </a>
                   </div>
                 </div>
               ))}
@@ -225,6 +231,22 @@ export default function SpaMenuPage() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Tambahan CTA Global untuk Menu Satuan (A la Carte) */}
+              <div className="mt-16 text-center bg-neutral-900 border border-neutral-800 rounded-2xl p-8 max-w-xl mx-auto shadow-xl">
+                <h3 className="text-lg font-serif text-white mb-2">Ingin Mengombinasikan Layanan Sendiri?</h3>
+                <p className="text-neutral-400 text-xs leading-relaxed mb-6">
+                  Pilih beberapa layanan A la Carte di atas dan diskusikan jadwal perawatan kustom Anda langsung dengan admin kami.
+                </p>
+                <a
+                  href="https://wa.me/6287897465067?text=Halo%20Clara%20Bali%20Spa,%20saya%20tertarik%20untuk%20konsultasi%20dan%20booking%20layanan%20A%20la%20Carte."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-md shadow-amber-500/5"
+                >
+                  Hubungi Clara Spa via WhatsApp
+                </a>
               </div>
             </motion.div>
           )}
